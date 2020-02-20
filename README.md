@@ -61,8 +61,5 @@ tensorboard --logdir=tensorboard/
 
 ```
 
-Here is the screenshot of the model I trained and visualized.
-
-![Visualization of word embedding](https://github.com/sarmilaupadhyaya/WordEmbeddingTrainingVisualization/raw/master/reference.png)
 
 
