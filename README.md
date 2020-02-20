@@ -54,6 +54,6 @@ tensorboard --logdir=tensorboard/
 
 Here is the screenshot of the model I trained and visualized.
 
-[](/var/www/personal/WordEmbeddingTrainingVisualization/Screenshot from 2020-02-20 14-08-32.png)
+[Visualization of word embedding](Screenshot from 2020-02-20 14-08-32.png)
 
 
