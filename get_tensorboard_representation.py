@@ -5,10 +5,26 @@ import numpy as np
 import tensorflow as tf
 from gensim.models import Word2Vec
 
-model_path = ""
+from gensim.models import KeyedVectors
+from tensorboard.plugins import projector
+
+model_path = "/home/ekbana/nep_emb/Nepali_Words_Stemmed_Model_5050.model"
 meta_file = "w2vec_metadata.tsv"
     
     
+def load_gensim_model(name, test_similarity= None, binary = None):
+    """
+
+        :return:
+    """
+    if binary:
+        model = KeyedVectors.load_word2vec_format(name,binary=True)
+    else:
+        model = KeyedVectors.load(name, mmap='r')
+
+    return model
+
+
 def visualize_embedding(model, output_path):
 
     placeholder = np.zeros((len(model.wv.index2word), model.vector_size))
@@ -27,7 +43,7 @@ def visualize_embedding(model, output_path):
     embedding_value = tf.Variable(placeholder, trainable=False, name='w2vec_metadata')
     tf.global_variables_initializer().run()
     saver = tf.train.Saver()
-    writer = tf.summary.FileWriter(output_path, sess.graph)
+    writer = tf.summary.FileWriter(output_path, session.graph)
 
     config = projector.ProjectorConfig()
     embed = config.embeddings.add()
@@ -35,7 +51,7 @@ def visualize_embedding(model, output_path):
     embed.metadata_path = meta_file
 
     projector.visualize_embeddings(writer, config)
-    saver.save(sess, os.path.join(output_path, 'w2vec_metadata.ckpt'))
+    saver.save(session, os.path.join(output_path, 'w2vec_metadata.ckpt'))
 
 if __name__=='__main__':
 
@@ -43,4 +59,6 @@ if __name__=='__main__':
         pass
     else:
         os.mkdir("tensorboard")
-    visualize_embedding(model_path, "tensorboard/")
+
+    model = load_gensim_model(model_path)
+    visualize_embedding(model, "tensorboard/")
