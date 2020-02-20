@@ -50,9 +50,32 @@ class W2vmodel:
         :return:
         """
         self.trainable_data = open(self.preprocessed_Data, "r").read().split("\n")
-        self.unique_words  = set([word for each in self.trainable for word in each.split(" ")])
+        self.unique_words  = set([word for each in self.trainable_data for word in each.split(" ")])
+
+    
+    def train_model(self):
+        """
+
+        :return:
+        """
+        logging.basicConfig(format="%(asctime)s : %(levelname)s : %(message)s", level=logging.INFO)
+
+        self.get_list_of_list()
+        model = gensim.models.Word2Vec(
+                self.trainable_data,
+                size=self.dimension,
+                window=self.windows_size,
+                min_count=2,
+                workers=10,
+                iter=self.iteration)
+        model.train(self.trainable_data, total_examples=len(self.trainable_data), epochs=self.epoch)
+        model_name = self.model_name + str(self.dimension) + ".model"
+        model.wv.save(model_name)
+
+        return model_name
+
 
 
 if __name__ == '__main__':
     ss = W2vmodel(model_name=model_name, language=language,data=filepath, iteration=1000, epoch=12, windows_size=5, dimension=dimension)
-    
+    model = ss.train_model() 
