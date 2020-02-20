@@ -3,23 +3,29 @@
 Gensim provides platform to train word embedding on your custom data. Please follow following steps.
 
 - Create Virtual Environment
+
   ```
 
   virtualenv --python=<your python path> <name_env>
 
   ```
+  
 - Activate the Environment
+
   ```
 
   source <name of environment>/bin/activate
 
  ```
+ 
 - Install the requirements.
+
   ```
 
   pip install -r requirements.txt
 
   ```
+  
 - Make sure you have made an .env file with PROJECT_PATH, MODEL_NAME, LANGUAGE (language of text you are training) and path of your data file.
 
   Your data should be a text file with clean, preprocessed texts, a sentence per line.
@@ -29,7 +35,7 @@ Gensim provides platform to train word embedding on your custom data. Please fol
 
 
 
-## loading Gensim Model ##
+## Loading Gensim Model ##
 After running the run.py file, your model will be saved and you can load the gensim model with the module provided inside the file itself.
 
 ## Fetching Word Vectors##
@@ -43,7 +49,7 @@ For more features. DO follow the following tutorial.
 [Gensim](https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html#sphx-glr-auto-examples-tutorials-run-word2vec-py)
 
 
-## Visualization of Gensim word vector modules in tensorflow
+## Visualization of Gensim Word Vector Modules in Tensorflow
 
 To visualize the trained embedding in the tensorboard. Run the get_tensorboard_representation.py file. Make sure you have valid model path. 
 
