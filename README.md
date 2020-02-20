@@ -48,10 +48,12 @@ After creating model checkpoint of the embedding and making a corresponding meta
 To visualize:
 
 ```
-python -m tensorboard --logdir={0}
+tensorboard --logdir=tensorboard/
 
 ```
 
+Here is the screenshot of the model I trained and visualized.
 
+[](/var/www/personal/WordEmbeddingTrainingVisualization/Screenshot from 2020-02-20 14-08-32.png)
 
 
