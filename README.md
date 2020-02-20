@@ -36,7 +36,7 @@ After loading the gensim model, you can fetch vector og single word as follow.
 Refere the module return_similar.
 
 For more features. DO follow the following tutorial.
-(Gensim Tutorial)[https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html#sphx-glr-auto-examples-tutorials-run-word2vec-py]
+[a link][https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html#sphx-glr-auto-examples-tutorials-run-word2vec-py]
 
 
 ## Visualization of Gensim word vector modules in tensorflow
