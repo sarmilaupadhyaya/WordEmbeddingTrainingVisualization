@@ -56,6 +56,3 @@ class W2vmodel:
 if __name__ == '__main__':
     ss = W2vmodel(model_name=model_name, language=language,data=filepath, iteration=1000, epoch=12, windows_size=5, dimension=dimension)
     
-    import pdb
-    pdb.set_trace()
-    print(ss)
