@@ -76,6 +76,24 @@ class W2vmodel:
 
 
 
+    def load_gensim_model(self, name, test_similarity= None, binary = None):
+        """
+
+        :return:
+        # """
+        if binary:
+            model = KeyedVectors.load_word2vec_format(name,binary=True)
+        else:
+            model = KeyedVectors.load(name, mmap='r')
+
+        retun model
+
+    def return_similar(self, word, model):
+
+        return model.most_similar(word)
+
+
 if __name__ == '__main__':
     ss = W2vmodel(model_name=model_name, language=language,data=filepath, iteration=1000, epoch=12, windows_size=5, dimension=dimension)
     model = ss.train_model() 
+    print(ss.return_similar("भारतस्थित", model))
